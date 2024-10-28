@@ -1,6 +1,6 @@
 const { BorrowingHistory, Book, User } = require('../models');
 
-// Borrow a book
+// borrow book
 exports.borrowBook = async (req, res) => {
     const { userId, bookId } = req.params;
     try {
@@ -15,7 +15,7 @@ exports.borrowBook = async (req, res) => {
             return res.status(404).json({ error: 'User not found.' });
         }
 
-        // Check if the book is already borrowed
+        // check if book is already borrowed
         const existingBorrowing = await BorrowingHistory.findOne({
             where: {
                 bookId: book.id,
@@ -27,7 +27,7 @@ exports.borrowBook = async (req, res) => {
             return res.status(400).json({ error: 'Book is already borrowed.' });
         }
 
-        // Create a new borrowing record
+        // create new borrowing record
         const borrowingRecord = await BorrowingHistory.create({
             userId: user.id,
             bookId: book.id,
