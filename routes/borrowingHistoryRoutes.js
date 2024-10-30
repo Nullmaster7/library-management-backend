@@ -6,4 +6,6 @@ router.post('/users/:userId/borrow/:bookId', BorrowingHistoryController.borrowBo
 
 router.post('/users/:userId/return/:bookId', BorrowingHistoryController.returnBook);
 
+router.get('/users/:bookId/currentOwner', BorrowingHistoryController.getCurrentOwner);
+
 module.exports = router;

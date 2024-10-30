@@ -34,6 +34,23 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      validate: {
+        isInt: {
+          msg: 'Rating must be an integer.'
+        },
+        min: {
+          args: [1],
+          msg: 'Rating must be at least 1.'
+        },
+        max: {
+          args: [5],
+          msg: 'Rating must be at most 5.'
+        }
+      }
+    },
     year: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -50,6 +67,16 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Year cannot be in the future.'
         }
       }
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
     }
   }, {
     sequelize,

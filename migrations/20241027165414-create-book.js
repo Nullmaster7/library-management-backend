@@ -41,6 +41,11 @@ module.exports = {
           max: 5
         }
       },
+      score: {  // initialize score too
+        type: Sequelize.FLOAT,
+        allowNull: true,
+        defaultValue: -1,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

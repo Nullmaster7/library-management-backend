@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api/books', bookRoutes);
-app.use('/api/borrowingHistories', borrowingHistoryRoutes);
+app.use('/api/', borrowingHistoryRoutes);
 
-// Error handling middleware
+// err
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');

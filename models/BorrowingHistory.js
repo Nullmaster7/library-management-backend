@@ -39,14 +39,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     returnedAt: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: true, // Allow null values
       validate: {
         isDate: {
           msg: 'returnedAt must be a valid date.'
         },
         isAfter(value) {
-          if (this.borrowedAt && new Date(value) <= new Date(this.borrowedAt)) {
-            throw new Error('returnedAt must be after borrowedAt.');
+          if (value && this.borrowedAt) {
+            if (new Date(value) <= new Date(this.borrowedAt)) {
+              throw new Error('returnedAt must be after borrowedAt.');
+            }
           }
         }
       }

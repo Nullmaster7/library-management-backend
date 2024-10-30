@@ -8,6 +8,7 @@ const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.p
     host: dbConfig.host,
     dialect: dbConfig.dialect,
     storage: dbConfig.storage,
+    logging: console.log,
 });
 
 const User = require('./User')(sequelize, DataTypes);

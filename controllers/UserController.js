@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, BorrowingHistory, Book } = require('../models');
 
 exports.getAllUsers = async (req, res) => {
     try {
@@ -12,7 +12,15 @@ exports.getAllUsers = async (req, res) => {
 exports.getUser = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id, {
-            include: [{ model: BorrowingHistory }],
+            include: [{
+
+                model: BorrowingHistory,
+                attributes: ['id', 'userId', 'bookId', 'borrowedAt', 'returnedAt', 'rating', 'createdAt', 'updatedAt'],
+                include: [
+                    { model: Book }
+                ]
+
+            }],
         });
         if (user) {
             res.status(200).json(user);
