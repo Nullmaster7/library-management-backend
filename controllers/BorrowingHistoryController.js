@@ -85,32 +85,3 @@ exports.returnBook = async (req, res) => {
         res.status(500).json({ error: 'Failed to return book.' });
     }
 };
-
-
-exports.getCurrentOwner = async (req, res) => {
-    const { bookId } = req.params;
-    try {
-        const currentOwner = await BorrowingHistory.findOne({
-            where: {
-                bookId: bookId,
-                returnedAt: null
-            },
-            include: [
-                { model: User, attributes: ['id', 'name', 'email'] },
-            ],
-            order: [['borrowedAt', 'DESC'], ['id', 'DESC']],
-        });
-
-        console.log(`Querying for book ID: ${bookId}`);
-
-        if (!currentOwner) {
-            return res.status(404).json({ message: 'Book is currently available.' });
-        }
-
-        console.log('Current Owner Response:', currentOwner);
-        res.status(200).json(currentOwner);
-    } catch (error) {
-        console.error('Error fetching current owner:', error);
-        res.status(500).json({ error: 'Failed to fetch current owner.' });
-    }
-};

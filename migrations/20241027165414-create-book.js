@@ -24,15 +24,15 @@ module.exports = {
           min: 0
         }
       },
-      currentOwnerId: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'Users',
-          key: 'id',
-          onDelete: 'SET NULL'
-        }
-      },
+      // currentOwnerId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: true,
+      //   references: {
+      //     model: 'Users',
+      //     key: 'id',
+      //     onDelete: 'SET NULL'
+      //   }
+      // },
       averageRating: {
         type: Sequelize.FLOAT,
         allowNull: true,
