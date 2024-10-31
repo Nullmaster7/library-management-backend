@@ -24,7 +24,6 @@ exports.getBorrowingHistory = async (req, res) => {
     }
 };
 
-// Borrow a book
 exports.borrowBook = async (req, res) => {
     const userId = req.params.userId; // Changed from req.body to req.params
     const bookId = req.params.bookId; // Changed from req.body to req.params
@@ -41,7 +40,6 @@ exports.borrowBook = async (req, res) => {
             return res.status(400).json({ error: 'Book is already borrowed.' });
         }
 
-        // Create new borrowing record
         const borrowingRecord = await BorrowingHistory.create({
             userId: userId,
             bookId: bookId,
@@ -58,7 +56,6 @@ exports.borrowBook = async (req, res) => {
     }
 };
 
-// Return a book
 exports.returnBook = async (req, res) => {
     const { userId, bookId } = req.params;
     try {

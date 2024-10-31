@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     returnedAt: {
       type: DataTypes.DATE,
-      allowNull: true, // Allow null values
+      allowNull: true,
       validate: {
         isDate: {
           msg: 'returnedAt must be a valid date.'

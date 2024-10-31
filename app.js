@@ -9,10 +9,6 @@ const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const borrowingHistoryRoutes = require('./routes/borrowingHistoryRoutes');
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the Library Management API');
-});
-
 app.use('/api/users', userRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/', borrowingHistoryRoutes);
