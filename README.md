@@ -28,15 +28,7 @@ Ensure you have the following installed on your local machine:
 
    create .env file in the root directory and add The base URL for the backend API : REACT_APP_API_URL=http://localhost:3001
 
-2. **Database Setup to set up the database schema, use the Sequelize CLI to run migrations**:
-   ```bash
-   npx sequelize-cli db:migrate
-
-3. **Seed the Database to populate the database with initial data, use the following command**:
-   ```bash
-   npx sequelize-cli db:seed:all
-
-4. **Run the Project**:
+2. **Run the Project**:
    ```bash
    npm run start 
 
