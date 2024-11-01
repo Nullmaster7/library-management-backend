@@ -32,6 +32,8 @@ Ensure you have the following installed on your local machine:
    ```bash
    npm run start 
 
+Note : I shared ddl.sql file so that after npm install you can easily run the application and get database seeds that I provided.
+
 ## API Endpoints
 
 Users
