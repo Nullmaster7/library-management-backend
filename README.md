@@ -26,13 +26,12 @@ Ensure you have the following installed on your local machine:
    
    npm install
 
-   create .env file in the root directory and add The base URL for the backend API : REACT_APP_API_URL=http://localhost:3001
-
 2. **Run the Project**:
    ```bash
    npm run start 
 
-Note : I shared ddl.sql file so that after npm install you can easily run the application and get database seeds that I provided.
+Note : I already shared ddl.sql file so on directory so that after npm install 
+you can easily run the application and get database seeds that I provided.
 
 ## API Endpoints
 
